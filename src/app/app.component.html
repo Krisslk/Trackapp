@@ -10,7 +10,7 @@
         <div class="row">
           <div class="col-6 collapse-brand">
             <a href="javascript:void(0)">
-              <img src="../../assets/img/brand/blue.png">
+              <img src="../../assets/img/brand/blue.png" />
             </a>
           </div>
           <div class="col-6 collapse-close">
@@ -50,17 +50,18 @@
           </div>
         </li>
       </ul>
-
     </div>
   </div>
 </nav>
 
-<br>
+<br />
 <div class="container">
-  <ngx-spinner bdColor = "rgba(0,0,0,0.8)" size = "default" color = "#00b9ff" type = "ball-beat" [fullScreen] = "true"> <p style="color: white" > Loading... </p> </ngx-spinner>
+  <ngx-spinner bdColor="rgba(0,0,0,0.8)" size="default" color="#00b9ff" type="ball-beat" [fullScreen]="true">
+    <p style="color: white">Loading...</p>
+  </ngx-spinner>
   <div class="row">
     <div class="col-md-4">
-      <div class="card  " style="width: 20rem;">
+      <div class="card" style="width: 20rem">
         <!-- Card header -->
         <div class="card-header">
           <h6 class="mb-0">Tracking</h6>
@@ -69,79 +70,111 @@
         <div class="card-body">
           <label class="form-control-label" for="exampleFormControlSelect1">Enter your track ID</label>
           <div class="input-group input-group-alternative input-group-merge">
-            <input [(ngModel)]="trackid" type="any" class="form-control" placeholder="">
+            <input [(ngModel)]="trackid" type="any" class="form-control" placeholder="" />
           </div>
-          <br>
-          <br>
+          <br />
+          <br />
           <div class="col">
-            <button (click)="gettrackid()"  class="btn btn-primary btn-sm" type="button">Track Oder</button>
+            <button (click)="gettrackid()" class="btn btn-primary btn-sm" type="button">
+              Track Oder
+            </button>
           </div>
         </div>
       </div>
     </div>
-<br>
+    <br />
     <div class="col-md-8">
-      
-      <div class="card">
-        <!-- Card header -->
-        <div class="card-header">
-          <!-- Surtitle -->
-          <h6 class="surtitle">Location</h6>
-          <!-- Title -->
-        </div>
-        <!-- Card body -->
-        <div class="card-body">
-          <iframe width="600" height="200" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB3l9SSv1W4sbNzUuPE7E09OJeSrpMCkXQ&q=Space+Needle,Seattle+WA" allowfullscreen>
-          </iframe>
-        </div>
+      <div class="col-md-12">
+        <h5>Tracking Number : {{ lTrackid }}</h5>
+      </div>
+      <div class="col-md-12">
+        <p>Date Of Shipment : {{ lDateOfShipment }}</p>
+      </div>
+      <div class="col-md-12">
+        <p><span> {{ lStatusDescription }}</span></p>
+        <hr>
+        <p>Pickup Country Name :<span> {{ lPickupCountryName }}</span></p>
+        <p>Pickup City Name :<span> {{ lPickupCountryName }}</span></p>
+        <p>Delivery Country Name :<span> {{ lDeliveryCountryName }}</span></p>
+        <p>Delivery City Name: :<span> {{ lDeliveryCityName }}</span></p>
+
       </div>
     </div>
-
   </div>
-  <br>
+  <hr>
+  <br />
 
   <div class="row">
     <div class="col-md-12">
-      <div class="card" >
-        <div class="card-header"> Tracking details</div>
+      <div class="card">
+        <div class="card-header">Tracking details</div>
         <div class="card-body">
           <div class="row">
-            <div class="col-md"><h5>Tracking Number : {{lTrackid}}</h5></div>
-            <div class="col-md"><h6>Status Description : {{lStatusDescription}}</h6></div>
-            
+            <div class="col-md">
+              <h6>Tracking Number : {{ lTrackid }}</h6>
+            </div>
           </div>
           <div class="row">
-            <div class="col-md"><h6>Tracking Number : 1011589</h6></div>
-            <div class="col-md"><h6>Date Of Shipment : {{lDateOfShipment}}</h6></div>
+            <div class="col-md">
+              <h6>Pieces : {{ lPieces }}</h6>
+            </div>
+            <div class="col-md">
+              <h6>Weight : {{ lWeight }}</h6>
+            </div>
           </div>
           <div class="row">
-            <div class="col-md"><h6>Pieces : {{lPieces}}</h6></div>
-            <div class="col-md"><h6>Weight : {{lWeight}}</h6></div>
+            <div class="col-md">
+              <h6>Pickup City Name : {{ lPickupCityName }}</h6>
+            </div>
+            <div class="col-md">
+              <h6>Pickup State Prov ID : {{ lPickupStateProvID }}</h6>
+            </div>
           </div>
+
           <div class="row">
-            <div class="col-md"><h6>Pickup City Name : {{lPickupCityName}}</h6></div>
-            <div class="col-md"><h6>Delivery City Name : {{lDeliveryCityName}}</h6></div>
+            <div class="col-md">
+              <h6>Pickup Country ID: {{ lPickupCountryID }}</h6>
+            </div>
+            <div class="col-md">
+              <h6>Pickup Country Name : {{ lPickupCountryName }}</h6>
+            </div>
+
           </div>
+          <hr>
+
           <div class="row">
-            <div class="col-md"><h6>Delivery Country Name : {{lDeliveryCountryName}}</h6></div>
-            <div class="col-md"><h6>Delivery Country ID : {{lDeliveryCountryID}}</h6></div>
+            <div class="col-md">
+              <h6>Delivery City Name: {{ lDeliveryCityName }}</h6>
+            </div>
+            <div class="col-md">
+              <h6>Delivery State Prov ID : {{ lDeliveryStateProvID }}</h6>
+            </div>
           </div>
+
+          <div class="row">
+            <div class="col-md">
+              <h6>Delivery Country ID: {{ lDeliveryCountryID}}</h6>
+            </div>
+            <div class="col-md">
+              <h6>Delivery Country Name : {{ lDeliveryCountryName}}</h6>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
 
-  <hr>
+  <hr />
   <div class="row">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header border-0">
           <div class="row align-items-center">
             <div class="col">
-              <h6 class="mb-0">Page visits</h6>
+              <h6 class="mb-0">Traking stutus</h6>
             </div>
-            <div class="col text-right">
-            </div>
+            <div class="col text-right"></div>
           </div>
         </div>
         <div class="table-responsive">
@@ -149,78 +182,35 @@
           <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-                <th *ngFor="let item of arrynew; let i = index" scope="col"> {{item}}</th>
+
+                <th *ngFor="let item of arrynew; let i = index" scope="col">
+                  {{ item }}
+                </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row">
-                  /argon/
-                </th>
-                <td>
-                  4,569
-                </td>
-                <td>
-                  340
-                </td>
-                <td>
-                  <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
+
+                <td *ngFor="let item of IsComplete; let i = index">
+                  {{ item }}
                 </td>
               </tr>
               <tr>
-                <th scope="row">
-                  /argon/index.html
-                </th>
-                <td>
-                  3,985
-                </td>
-                <td>
-                  319
-                </td>
-                <td>
-                  <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
+
+                <td scope="row" *ngFor="let item of StepDescription; let i = index">
+                  {{ item }}
                 </td>
               </tr>
               <tr>
-                <th scope="row">
-                  /argon/charts.html
-                </th>
-                <td>
-                  3,513
-                </td>
-                <td>
-                  294
-                </td>
-                <td>
-                  <i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%
+
+                <td scope="row" *ngFor="let item of CompletedUTC; let i = index">
+                  {{ item }}
                 </td>
               </tr>
               <tr>
-                <th scope="row">
-                  /argon/tables.html
-                </th>
-                <td>
-                  2,050
-                </td>
-                <td>
-                  147
-                </td>
-                <td>
-                  <i class="fas fa-arrow-up text-success mr-3"></i> 50,87%
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  /argon/profile.html
-                </th>
-                <td>
-                  1,795
-                </td>
-                <td>
-                  190
-                </td>
-                <td>
-                  <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
+
+                <td scope="row" *ngFor="let item of CompletedLocal; let i = index">
+                  {{ item }}
                 </td>
               </tr>
             </tbody>
@@ -231,10 +221,6 @@
   </div>
 </div>
 
-
-
-
-<br>
-
+<br />
 
 <router-outlet></router-outlet>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import Swal from 'sweetalert2'
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { NgxSpinnerService } from "ngx-spinner";
 
 
@@ -34,6 +34,10 @@ export class AppComponent {
   title = 'sachintha';
   datamax: any = null;
   arrynew: any[] = [];
+  IsComplete: any[] = [];
+  StepDescription: any[] = [];
+  CompletedUTC: any[] = [];
+  CompletedLocal:any[]=[]
 
 
   constructor(private http: HttpClient, private spinner: NgxSpinnerService) { }
@@ -60,8 +64,10 @@ export class AppComponent {
   lStepName: any;
   lItinerary: any;
 
+  id: any
+
   gettrackid() {
-    console.log(this.trackid);
+
 
     if (this.trackid == null) {
 
@@ -82,9 +88,16 @@ export class AppComponent {
 
       // var url = 'https://cors-anywhere.herokuapp.com/https://webapi-shipper.shipsameday.com/api/Track/15782/' + this.trackid + '?fbclid=IwAR2i9xYH6_w79hVBRBtvWMTbeGSIZmqdB8dC21DAbJYqWiIuHJRjCSMb1_I'
 
-      var url = 'http://colombolive.com/curl/agent.php?fbclid=IwAR23B32YpuRn1iY6oHsgQY9vIsWYzmUVpgw4rEDpBhbgVlIJ37aTqkoN7RQ'
+      let body = new HttpParams({
+        fromObject: {
 
-      this.http.get<indetail>(url)
+          'trackid': this.trackid,
+        }
+      });
+
+      var url = 'http://colombolive.com/curl/agent.php?fbclid=IwAR23B32YpuRn1iY6oHsgQY9vIsWYzmUVpgw4rEDpBhbgVlIJ37aTqkoN7RQ'
+      console.log(this.trackid);
+      this.http.post<any>(url, body)
         .subscribe(data => {
           this.indetails = data;
           this.lTrackid = this.indetails.TrackingNumber;
@@ -103,9 +116,14 @@ export class AppComponent {
           this.lItinerary = this.indetails.Itinerary;
           this.lStepName = this.indetails.StepName;
 
-          this.arrynew =[] // clan arry 
+          this.arrynew = [] // clan arry
+          this.IsComplete = []
+          this.StepDescription = []
+          this.CompletedUTC = []
+          this.CompletedLocal = []
 
-          
+
+
           // console.log( this.lItinerary);
 
 
@@ -116,9 +134,13 @@ export class AppComponent {
           while (i < 4) {
 
             i++;
-            
+
             this.arrynew.push(this.lItinerary[i].StepName)
-            
+            this.IsComplete.push(this.lItinerary[i].IsComplete)
+            this.StepDescription.push(this.lItinerary[i].StepDescription)
+            this.CompletedUTC.push(this.lItinerary[i].CompletedUTC)
+            this.CompletedLocal.push(this.lItinerary[i].CompletedLocal)
+
             console.log(this.arrynew)
 
             setTimeout(() => {

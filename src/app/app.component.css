@@ -2,3 +2,13 @@ h6{
     font-size: 12px;
     margin-left: 20px;
 }
+
+td {
+    text-align: center;
+    font-size: small;
+}
+
+thead.thead-light {
+    text-align: center;
+    font-size: small;
+}
